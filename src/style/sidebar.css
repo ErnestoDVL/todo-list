@@ -1,0 +1,153 @@
+
+
+.side-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 350px;
+    height: 100dvh;
+
+    padding: 0.6rem;
+
+    background-color: #191919;
+}
+
+
+/* APP TITLE */
+
+.app-title, .projects-title{
+    
+    font-size: 2rem;
+    font-weight: 500;
+
+    color: #FFFFFF;
+
+}
+
+.app-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    padding: 2.6rem 0;
+    margin-bottom: 80px;
+
+}
+
+/* PROJECTS */
+
+.projects{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+    height: 375px;
+    padding: 1.2rem 0;
+}
+
+.project-line-top, .project-line-bottom{
+    position: absolute;
+    width: 100%;
+
+    height: 1px;
+
+    background-color: #717171;
+}
+
+.project-line-top{
+    top: 48px;
+}
+
+.project-line-bottom{
+    bottom: 55px;
+}
+
+
+.projects-title{
+    margin-bottom: 29px;
+}
+
+.projects-container{
+    display: flex;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 0rem 1.6rem;
+    margin-bottom: 20px;
+}
+
+.project{
+    display: flex;
+    align-items: center;
+    
+    height: 44px;
+    width: 95%;    
+    font-size: 1.8rem;
+    
+    border: #FFFFFF solid 2px;
+    color: #FFFFFF;
+
+}
+
+.text-container{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    
+    height: 100%;
+    width: 30px;
+}
+.arrow-right{
+
+}
+
+.projects-add, .project{
+    border-radius: 4px;
+}
+
+.projects-add{
+    font-size: 1.8rem;
+
+    padding: 0.4rem 1.4rem;
+    
+    border: #61AC69 solid 1px;
+    color: #61AC69;
+    background: none;
+}
+
+
+/* PROJECT VIEWING */
+
+.projects-viewing{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;    
+    color: #FFFFFF;
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    padding: 1.4rem 1.6rem;
+}
+
+.copyright{
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}

@@ -1,0 +1,54 @@
+.todo-container{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.todo-heading-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin-top: 10px;
+    width: 100%;
+}
+
+.todo-heading{
+    background-color: #ffffff;
+
+    padding: 0 2rem;
+    font-size: 4rem;
+    font-style: italic;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+}
+
+.todo-heading-mainline{
+    z-index: -1;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+
+
+    width: 100%;
+    height: 8px;
+
+    background-color:  #1A1A1A;
+}
+
+.todo-heading-secondaryline{
+
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+
+
+    width: 40%;
+    height: 4px;
+
+    background-color:  #ffffff;
+}
