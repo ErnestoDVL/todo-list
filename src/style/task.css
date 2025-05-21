@@ -1,0 +1,35 @@
+#task-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 95%;
+    height: 101px;
+
+    border: #1A1A1A solid 2px;
+
+    border-top-left-radius: 21px;
+    border-bottom-right-radius: 21px;
+    cursor: pointer;
+}
+
+/* Priority Styles */
+
+.priority{
+
+}
+.wrapper-priorities{
+    display: flex;
+}
+
+.priority-high{
+
+}
+.priority-medium{
+
+}
+
+.priority-low{
+    
+}
