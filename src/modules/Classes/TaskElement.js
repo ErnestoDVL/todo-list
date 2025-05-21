@@ -25,11 +25,16 @@ class TaskElement{
     }
 
     #composeAttributes({status, priority}){
-        const attributesWrapper = DomHandler.createElement('div', 'attributes-wrapper');
-        const attributes = DomHandler.batchCreate([
-            ['p', 'task-status', status],
-            ['p', 'task-priority', priority]
-        ]);
+        const attributesWrapper = DomHandler.wrapperCreate(
+            {
+                parent: ['div', 'attributes-wrapper'],
+
+                children:
+                [
+                    ['p', 'task-status', status],
+                    ['p', 'task-priority', priority]
+                ]
+            })
 
 
 
@@ -38,26 +43,33 @@ class TaskElement{
     }
 
     #composeText({title, dueDate}){
-        const textWrapper = DomHandler.createElement('div', 'text-wrapper');
-        const textElements = DomHandler.batchCreate([
-            ['div', 'middleline'],
-            ['p', 'task-title', title],
-            ['p', 'task-duedate', dueDate]
-        ]);
+        const textWrapper = DomHandler.wrapperCreate(
+            {
+                parent: ['div', 'text-wrapper'],
 
-        textWrapper.append(...textElements);
+                children:
+                [
+                    ['div', 'middleline'],
+                    ['p', 'task-title', title],
+                    ['p', 'task-duedate', dueDate]
+                ]
+            });
 
         return textWrapper;
     }
 
     #composeActions(){
-        const actionsWrapper = DomHandler.createElement('div', 'actions-wrapper');
-        const actionElements = DomHandler.batchCreate([
-            ['button', 'task-edit'],
-            ['button', 'task-remove']
-        ]);
+        const actionsWrapper = DomHandler.wrapperCreate(
+            {
+                parent: ['div', 'actions-wrapper'],
 
-        actionsWrapper.append(...actionElements);
+                children: 
+                [
+                    ['button', 'task-edit'],
+                    ['button', 'task-remove']
+                ]
+            }
+        )
 
         return actionsWrapper
     }
