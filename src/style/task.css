@@ -17,10 +17,12 @@
 /* Priority Styles */
 
 .priority{
-
+    padding: 0.4rem 0.8rem;
 }
 .wrapper-priorities{
     display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .priority-high{

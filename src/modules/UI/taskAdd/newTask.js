@@ -21,9 +21,9 @@ function displayTaskaddUI(container){
             parent: ['div', 'wrapper-priorities'],
 
             children: [
-                ['button', 'priority-high', 'Task Priority'],
-                ['button', 'priority-medium', 'Task Priority'],
-                ['button', 'priority-low', 'Task Priority'],
+                ['button', 'priority-high priority', 'Task Priority'],
+                ['button', 'priority-medium priority', 'Task Priority'],
+                ['button', 'priority-low priority', 'Task Priority'],
             ]
         }
     )
