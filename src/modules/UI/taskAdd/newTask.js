@@ -3,46 +3,48 @@ let uiActive = false;
 
 function displayTaskaddUI(container){
 
-    const taskAddWrapper = DomHandler.createElement('div', 'wrapper-taskadd')
+    DomHandler.parseInputType('lol input[hi]')
 
-    const titleWrapper = DomHandler.wrapperCreate(
-        {
-            parent: ['div', 'wrapper-input'],
+    // const taskAddWrapper = DomHandler.createElement('div', 'wrapper-taskadd')
 
-            children: [
-                ['p', 'input-header', 'Task Title'],
-                ['input[text]', 'input-title', 'Task Priority']
-            ]
-        }
-    )
+    // const titleWrapper = DomHandler.wrapperCreate(
+    //     {
+    //         parent: ['div', 'wrapper-input'] ,
+
+    //         children: [
+    //             ['p', 'input-header', 'Task Title'],
+    //             ['input[text]', 'input-title', 'Task Priority']
+    //         ]
+    //     }
+    // )
     
-    const priorities = DomHandler.wrapperCreate(
-        {
-            parent: ['div', 'wrapper-priorities'],
+    // const priorities = DomHandler.wrapperCreate(
+    //     {
+    //         parent: ['div', 'wrapper-priorities'],
 
-            children: [
-                ['button', 'priority-high priority', 'Task Priority'],
-                ['button', 'priority-medium priority', 'Task Priority'],
-                ['button', 'priority-low priority', 'Task Priority'],
-            ]
-        }
-    )
+    //         children: [
+    //             ['button', 'priority-high priority', 'Task Priority'],
+    //             ['button', 'priority-medium priority', 'Task Priority'],
+    //             ['button', 'priority-low priority', 'Task Priority'],
+    //         ]
+    //     }
+    // )
 
-    const priorityWrapper = DomHandler.wrapperCreate(
-        {
-            parent: ['div', 'wrapper-input'],
+    // const priorityWrapper = DomHandler.wrapperCreate(
+    //     {
+    //         parent: ['div', 'wrapper-input'],
 
-            children: [
-                ['p', 'input-header', 'Task Priority'],
-                priorities,
-            ]
-        }
+    //         children: [
+    //             ['p', 'input-header', 'Task Priority'],
+    //             priorities,
+    //         ]
+    //     }
 
-    )
+    // )
     
 
-    taskAddWrapper.append(titleWrapper, priorityWrapper);
-    container.append(taskAddWrapper)
+    // taskAddWrapper.append(titleWrapper, priorityWrapper);
+    // container.append(taskAddWrapper)
 }
 
 

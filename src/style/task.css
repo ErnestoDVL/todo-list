@@ -18,6 +18,7 @@
 
 .priority{
     padding: 0.4rem 0.8rem;
+    border: none;
 }
 .wrapper-priorities{
     display: flex;
