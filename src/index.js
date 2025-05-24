@@ -6,6 +6,7 @@ import './style/mainContent.css'
 //Task Styles
 import './style/task.css'
 import './modules/UI/taskAdd/taskAdd.css'
+
 // Classes
 import Task from'./modules/Classes/Task.js';
 import TaskElement from './modules/Classes/TaskElement.js';

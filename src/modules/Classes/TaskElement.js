@@ -1,82 +1,95 @@
 import Task from './Task.js';
 import DomHandler from './DomHandler.js';
 
-class TaskElement{
-
-    constructor(task){
+class TaskElement {
+    constructor(task) {
         console.log(typeof task, typeof Task)
-        if (task instanceof Task){
+        if (task instanceof Task) {
             this.taskEl = this.#composer(task);
-        }else{
+        } else {
             throw new Error(`${task} must be an instance of Task`);
         }
-
     }
 
-    //private functions
-    #composer(task){
-        const wrapper = DomHandler.createElement('div', 'task');
-
+    // private functions
+    #composer(task) {
+        const wrapper = DomHandler.createElement({
+            type: 'div',
+            classes: 'task'
+        });
         wrapper.appendChild(this.#composeActions());
         wrapper.appendChild(this.#composeAttributes(task));
         wrapper.appendChild(this.#composeText(task));
-
-        return wrapper
+        return wrapper;
     }
 
-    #composeAttributes({status, priority}){
+    #composeAttributes({status, priority}) {
         const attributesWrapper = DomHandler.wrapperCreate(
             {
-                parent: ['div', 'attributes-wrapper'],
-
-                children:
-                [
-                    ['p', 'task-status', status],
-                    ['p', 'task-priority', priority]
-                ]
-            })
-
-
-
-        attributesWrapper.append(...attributes);
+                type: 'div',
+                classes: 'attributes-wrapper'
+            },
+            [
+                {
+                    type: 'p',
+                    classes: 'task-status',
+                    text: status
+                },
+                {
+                    type: 'p',
+                    classes: 'task-priority',
+                    text: priority
+                }
+            ]
+        );
         return attributesWrapper;
     }
 
-    #composeText({title, dueDate}){
+    #composeText({title, dueDate}) {
         const textWrapper = DomHandler.wrapperCreate(
             {
-                parent: ['div', 'text-wrapper'],
-
-                children:
-                [
-                    ['div', 'middleline'],
-                    ['p', 'task-title', title],
-                    ['p', 'task-duedate', dueDate]
-                ]
-            });
-
+                type: 'div',
+                classes: 'text-wrapper'
+            },
+            [
+                {
+                    type: 'div',
+                    classes: 'middleline'
+                },
+                {
+                    type: 'p',
+                    classes: 'task-title',
+                    text: title
+                },
+                {
+                    type: 'p',
+                    classes: 'task-duedate',
+                    text: dueDate
+                }
+            ]
+        );
         return textWrapper;
     }
 
-    #composeActions(){
+    #composeActions() {
         const actionsWrapper = DomHandler.wrapperCreate(
             {
-                parent: ['div', 'actions-wrapper'],
-
-                children: 
-                [
-                    ['button', 'task-edit'],
-                    ['button', 'task-remove']
-                ]
-            }
-        )
-
-        return actionsWrapper
+                type: 'div',
+                classes: 'actions-wrapper'
+            },
+            [
+                {
+                    type: 'button',
+                    classes: 'task-edit'
+                },
+                {
+                    type: 'button',
+                    classes: 'task-remove'
+                }
+            ]
+        );
+        return actionsWrapper;
     }
-
-
-
 }
-
 
 export default TaskElement;
