@@ -17,6 +17,7 @@ class TaskElement {
             type: 'div',
             classes: 'task'
         });
+
         wrapper.appendChild(this.#composeActions());
         wrapper.appendChild(this.#composeAttributes(task));
         wrapper.appendChild(this.#composeText(task));

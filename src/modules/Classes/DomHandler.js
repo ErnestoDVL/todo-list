@@ -5,7 +5,8 @@
  *   type: 'button',
  *   classes: 'btn primary',
  *   text: 'Click me',
- *   event: { type: 'click', cb: handleClick }
+ *   event: { type: 'click', cb: handleClick },
+ *   attributes: [{key: 'type', value: 'submit'}]
  * });
 */
 
@@ -13,30 +14,22 @@ class DomHandler{
     //Utility functions (Private)
 
     static #configureElement(element, elementConfig){
-        element.classList.add(...elementConfig.classes.split(' '));
-        element.textContent = elementConfig.text || '';
+        if (elementConfig.text)
+            element.textContent = elementConfig.text;
+        
+        if(elementConfig.classes)
+            element.classList.add(...elementConfig.classes.split(' '));
+        
         if (elementConfig.event)
             element.addEventListener(elementConfig.event.type, elementConfig.event.cb);
+        
+        if (elementConfig.attributes)
+            elementConfig.attributes.forEach(attribute =>{
+                element.setAttribute(attribute.key, attribute.value);
+        })
         return element;
     }
-
-
- 
-    static #parseInputType(inputString){
-        let inputTypeIndexStart = inputString.indexOf('[') + 1;
-        let inputTypeIndexEnd = inputString.indexOf(']');
-        let inputType = inputString.slice(inputTypeIndexStart, inputTypeIndexEnd);
-    
-        return inputType;
-    }
-
-
-    static #handleInputElements(elementConfig){
-        let element = document.createElement('input');
-        element.type = this.#parseInputType(elementConfig.type);
-        return this.#configureElement(element, elementConfig);
-    }
-
+  
     //PUBLIC API
 
     /**
@@ -45,18 +38,14 @@ class DomHandler{
      * @param {string} elementConfig.type - Element type (e.g., 'div', 'input[text]')
      * @param {string} elementConfig.classes - Space-separated CSS classes
      * @param {string} elementConfig.text - Text content
-     * @param {Object} [elementConfig.event] - Event configuration
+     * @param {{type: string, cb: Function}} [elementConfig.event] - Event configuration
+     * @param {Array<{key: string, value: string}>} [elementConfig.attributes] - Array of attribute objects
      * @returns {HTMLElement} Configured DOM element
      */
     static createElement(elementConfig){
         if (elementConfig instanceof HTMLElement) return elementConfig;
         
-        if (elementConfig.type.includes('input')) 
-            return this.#handleInputElements(elementConfig);
-
-        
         let element = document.createElement(elementConfig.type);
-        console.log(elementConfig.type)
         return this.#configureElement(element, elementConfig);
     }
 
