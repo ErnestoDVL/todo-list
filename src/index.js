@@ -10,16 +10,26 @@ import './modules/UI/taskAdd/taskAdd.css'
 // Classes
 import Task from'./modules/Classes/Task.js';
 import TaskElement from './modules/Classes/TaskElement.js';
-import displayAddTaskUI from './modules/UI/taskAdd/newTask.js';
+import DomHandler from './modules/Classes/DomHandler.js'
 
+//UI Handlers
+import composeTaskAddUi from './modules/UI/taskAdd/newTask.js';
 const taskAdder = document.querySelector('#task-add');
+
+
 const appContainer = document.querySelector('.todo-container');
 const currentTasks = []
-console.log(appContainer)
 
 
-console.log(taskAdder)
 taskAdder.addEventListener('click', () => {
-    displayAddTaskUI(appContainer)
+    let taskAddUi = composeTaskAddUi();
+    const backgroundBlur = DomHandler.createElement(
+    {
+        type: 'div',
+        classes: 'background-blur'
+    })
+    
+    appContainer.append(taskAddUi);
+    document.body.append(backgroundBlur)
 
 })
