@@ -45,3 +45,17 @@ html{
 .bold{
     font-weight: 500;
 }
+
+.background-blur{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+
+    z-index: 1;
+
+    background-color: black;
+
+    opacity: 0.6;
+}
