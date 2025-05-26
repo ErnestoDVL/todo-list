@@ -1,96 +1,72 @@
-import Task from './Task.js';
+import TaskData from './TaskData.js';
 import DomHandler from './DomHandler.js';
 
 class TaskElement {
-    constructor(task) {
-        console.log(typeof task, typeof Task)
-        if (task instanceof Task) {
-            this.taskEl = this.#composer(task);
-        } else {
-            throw new Error(`${task} must be an instance of Task`);
+    #titleElement = null;
+    #statusElement = null;
+    #priorityElement = null;
+    #dueDateElement = null;
+
+    constructor(task){
+        if(!task instanceof TaskData){
+            throw new Error('Argument passed must be an instance of Task class')
         }
+        
+        this.titleElement = task.title
+        this.statusElement = task.status
+        this.priorityElement = task.priority;
+        this.dueDateElement = task.dueDate;
+    }
+    
+    set titleElement(title){
+
+        this.#titleElement = DomHandler.createElement({
+            type: 'p',
+            text: title,
+            classes: 'task-title'
+        })
     }
 
-    // private functions
-    #composer(task) {
-        const wrapper = DomHandler.createElement({
-            type: 'div',
-            classes: 'task'
-        });
-
-        wrapper.appendChild(this.#composeActions());
-        wrapper.appendChild(this.#composeAttributes(task));
-        wrapper.appendChild(this.#composeText(task));
-        return wrapper;
+    get titleElement(){
+        return this.#titleElement;
     }
 
-    #composeAttributes({status, priority}) {
-        const attributesWrapper = DomHandler.wrapperCreate(
-            {
-                type: 'div',
-                classes: 'attributes-wrapper'
-            },
-            [
-                {
-                    type: 'p',
-                    classes: 'task-status',
-                    text: status
-                },
-                {
-                    type: 'p',
-                    classes: 'task-priority',
-                    text: priority
-                }
-            ]
-        );
-        return attributesWrapper;
+    set statusElement(status){
+        this.#statusElement = DomHandler.createElement({
+            type: 'p',
+            text: status,
+            classes: 'task-status'
+        })
     }
 
-    #composeText({title, dueDate}) {
-        const textWrapper = DomHandler.wrapperCreate(
-            {
-                type: 'div',
-                classes: 'text-wrapper'
-            },
-            [
-                {
-                    type: 'div',
-                    classes: 'middleline'
-                },
-                {
-                    type: 'p',
-                    classes: 'task-title',
-                    text: title
-                },
-                {
-                    type: 'p',
-                    classes: 'task-duedate',
-                    text: dueDate
-                }
-            ]
-        );
-        return textWrapper;
+    get statusElement(){
+        return this.#statusElement;
     }
 
-    #composeActions() {
-        const actionsWrapper = DomHandler.wrapperCreate(
-            {
-                type: 'div',
-                classes: 'actions-wrapper'
-            },
-            [
-                {
-                    type: 'button',
-                    classes: 'task-edit'
-                },
-                {
-                    type: 'button',
-                    classes: 'task-remove'
-                }
-            ]
-        );
-        return actionsWrapper;
+    set priorityElement(priority){
+        this.#priorityElement = DomHandler.createElement({
+            type: 'p',
+            text: priority,
+            classes: 'task-priority'
+        })
     }
+
+    get priorityElement(){
+        return this.#priorityElement;
+    }
+
+    set dueDateElement(dueDate){
+        this.#dueDateElement = DomHandler.createElement({
+            type: 'p',
+            text: dueDate,
+            classes: 'task-duedate'
+        })
+    }
+
+    get dueDateElement(){
+        return this.#dueDateElement;
+    }
+    
 }
 
 export default TaskElement;

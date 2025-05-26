@@ -1,5 +1,5 @@
 import DomHandler from "../../Classes/DomHandler";
-import taskDataHandler from "../../taskDataHandler";
+import taskDataHandler from "../../Utility/taskUtilities.js";
 import {format ,compareAsc} from 'date-fns'
 
 
@@ -51,6 +51,8 @@ function composeTaskAddUi() {
                     };
 
                     taskDataHandler(task);
+
+                    exitButton.click();
                 }
             }
         }

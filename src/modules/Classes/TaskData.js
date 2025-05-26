@@ -1,6 +1,6 @@
 import {format ,compareAsc} from 'date-fns'
 
-class Task{
+class TaskData{
     #status = '';
     #priority = '';
     #dueDate = null;
@@ -44,7 +44,6 @@ class Task{
     set dueDate(dueDate){
         let formattedDate = format(dueDate, 'MM/dd/yyyy');
         const isOldDate = compareAsc(dueDate, new Date(Date.now())) !== 1 ? true : false;
-        console.log(isOldDate)
         if(isOldDate){
             throw new Error(`Due date must be a future date. Passed Date: ${formattedDate}`)
         }
@@ -58,4 +57,4 @@ class Task{
 }
 
 
-export default Task;
+export default TaskData;
