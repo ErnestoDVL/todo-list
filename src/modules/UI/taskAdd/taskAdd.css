@@ -1,7 +1,7 @@
 
 .wrapper-taskadd{
     position: absolute;
-    top: 100%;
+    top: 50%;
     right: 50%;
     z-index: 2;
 
@@ -15,7 +15,7 @@
     background-color: var(--mainGray);
 
 
-    transform: translate(50%, 50%);
+    transform: translate(50%, -50%);
 }
 
 .taskadd-form{
@@ -96,4 +96,8 @@
     border: solid #61AC69 1px;
     background-color: var(--mainGray);
     color: #61AC69;
+}
+
+button{
+    cursor: pointer;
 }

@@ -49,7 +49,7 @@ class DomHandler{
         return this.#configureElement(element, elementConfig);
     }
 
-    static batchCreate(elementConfigArray){
+    static createBatch(elementConfigArray){
         let newHTMLElementsArray = []
         elementConfigArray.forEach( elementConfig => { 
             newHTMLElementsArray.push(this.createElement(elementConfig));
@@ -58,9 +58,9 @@ class DomHandler{
         return newHTMLElementsArray;
     }
 
-    static wrapperCreate(elementConfigParent, elementConfigChildren){
+    static createWrapper(elementConfigParent, elementConfigChildren){
         let newHTMLParent = this.createElement(elementConfigParent);
-        let newHTMLChildren = this.batchCreate(elementConfigChildren);
+        let newHTMLChildren = this.createBatch(elementConfigChildren);
 
         newHTMLParent.append(...newHTMLChildren)
 

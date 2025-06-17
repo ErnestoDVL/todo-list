@@ -2,69 +2,69 @@ import TaskData from './TaskData.js';
 import DomHandler from './DomHandler.js';
 
 class TaskElement {
-    #titleElement = null;
-    #statusElement = null;
-    #priorityElement = null;
-    #dueDateElement = null;
+    #title = null;
+    #status = null;
+    #priority = null;
+    #dueDate = null;W
 
     constructor(task){
         if(!task instanceof TaskData){
             throw new Error('Argument passed must be an instance of Task class')
         }
         
-        this.titleElement = task.title
-        this.statusElement = task.status
-        this.priorityElement = task.priority;
-        this.dueDateElement = task.dueDate;
+        this.title = task.title
+        this.status = task.status
+        this.priority = task.priority;
+        this.dueDate = task.dueDate;
     }
     
-    set titleElement(title){
+    set title(title){
 
-        this.#titleElement = DomHandler.createElement({
+        this.#title = DomHandler.createElement({
             type: 'p',
             text: title,
             classes: 'task-title'
         })
     }
 
-    get titleElement(){
-        return this.#titleElement;
+    get title(){
+        return this.#title;
     }
 
-    set statusElement(status){
-        this.#statusElement = DomHandler.createElement({
+    set status(status){
+        this.#status = DomHandler.createElement({
             type: 'p',
             text: status,
             classes: 'task-status'
         })
     }
 
-    get statusElement(){
-        return this.#statusElement;
+    get status(){
+        return this.#status;
     }
 
-    set priorityElement(priority){
-        this.#priorityElement = DomHandler.createElement({
+    set priority(priority){
+        this.#priority = DomHandler.createElement({
             type: 'p',
-            text: priority,
-            classes: 'task-priority'
+            text: `${priority.charAt(0).toUpperCase()}${priority.slice(1)}`,
+            classes: `task-priority priority-${priority}`
         })
     }
 
-    get priorityElement(){
-        return this.#priorityElement;
+    get priority(){
+        return this.#priority;
     }
 
-    set dueDateElement(dueDate){
-        this.#dueDateElement = DomHandler.createElement({
+    set dueDate(dueDate){
+        this.#dueDate = DomHandler.createElement({
             type: 'p',
-            text: dueDate,
+            text: `DUE: ${dueDate}`,
             classes: 'task-duedate'
         })
     }
 
-    get dueDateElement(){
-        return this.#dueDateElement;
+    get dueDate(){
+        return this.#dueDate;
     }
     
 }

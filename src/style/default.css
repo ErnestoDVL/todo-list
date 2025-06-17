@@ -20,12 +20,6 @@ html{
     width: 100%;
 }
 
-.todo-container{
-    position: relative;
-    display: flex;
-}
-
-
 .border{
     border: #717171 solid 1px;
     border-radius: 5px;
@@ -59,3 +53,4 @@ html{
 
     opacity: 0.6;
 }
+
